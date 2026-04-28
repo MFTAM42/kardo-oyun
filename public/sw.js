@@ -1,4 +1,4 @@
-const CACHE = 'kardo-v3';
+const CACHE = 'cipher-v4';
 const STATIC = ['/index.html', '/style.css', '/game.js', '/manifest.json', '/icon-192.png', '/icon-512.png'];
 
 self.addEventListener('install', e => {

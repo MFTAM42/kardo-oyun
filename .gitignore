@@ -3,3 +3,6 @@ android/
 build_log.txt
 *.bat
 *.ps1
+
+# Local Netlify folder
+.netlify
