@@ -1,0 +1,18 @@
+{
+  "name": "kardo-oyun",
+  "version": "1.0.0",
+  "description": "KARDO: Şehrin Gölgeleri - AI destekli polis/suçlu oyunu",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "set ANTHROPIC_API_KEY=buraya_api_key_yaz && node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.0",
+    "@capacitor/android": "^8.3.1",
+    "@capacitor/cli": "^8.3.1",
+    "@capacitor/core": "^8.3.1",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}

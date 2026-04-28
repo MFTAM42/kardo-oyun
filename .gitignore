@@ -1,0 +1,5 @@
+node_modules/
+android/
+build_log.txt
+*.bat
+*.ps1

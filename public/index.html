@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KARDO: Şehrin Gölgeleri</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#e8a020" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+<body>
+
+  <!-- BAŞLANGIÇ -->
+  <div id="screen-intro" class="screen active">
+    <div class="intro-bg"></div>
+    <div class="intro-content">
+      <div class="intro-logo">
+        <h1 class="game-title">KARDO</h1>
+        <p class="game-subtitle">ŞEHRİN GÖLGELERİ</p>
+      </div>
+      <p class="game-desc">Polis mi olursun, hırsız mı?<br/>Suçlu mu, dedektif mi?<br/><span>Her karar seni başka bir sona götürür.</span></p>
+      <button class="btn-primary" onclick="showRoleSelect()">OYUNA BAŞLA</button>
+      <p class="game-version">v2.0 — Gemini AI Destekli</p>
+    </div>
+  </div>
+
+  <!-- ROL SEÇİM -->
+  <div id="screen-role" class="screen">
+    <div class="role-screen-inner">
+      <h2 class="section-title">ROLÜNÜ SEÇ</h2>
+      <p class="section-sub">Seçtiğin rol, şehirde nasıl hayatta kalacağını belirler.</p>
+      <div class="role-grid">
+        <div class="role-card" onclick="selectRole('detective')" data-role="detective">
+          <div class="role-icon">🔍</div>
+          <div class="role-name">DEDEKTİF</div>
+          <div class="role-desc">Kanıt topla, suçluları çöz, şehri koru. Zeka senin silahın.</div>
+          <div class="role-stats">
+            <div class="stat-row"><span>Zeka</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d"></span></div></div>
+            <div class="stat-row"><span>Güç</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d"></span><span class="d"></span><span class="d"></span></div></div>
+          </div>
+          <div class="role-start">İtibar: 80 | Para: $400 | Risk: Düşük</div>
+        </div>
+        <div class="role-card" onclick="selectRole('police')" data-role="police">
+          <div class="role-icon">👮</div>
+          <div class="role-name">POLİS</div>
+          <div class="role-desc">Sokaklarda düzeni sağla. Güç ve otorite senin yanında.</div>
+          <div class="role-stats">
+            <div class="stat-row"><span>Zeka</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d"></span><span class="d"></span></div></div>
+            <div class="stat-row"><span>Güç</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d"></span></div></div>
+          </div>
+          <div class="role-start">İtibar: 70 | Para: $500 | Risk: Orta</div>
+        </div>
+        <div class="role-card" onclick="selectRole('thief')" data-role="thief">
+          <div class="role-icon">🦹</div>
+          <div class="role-name">HIRSIZ</div>
+          <div class="role-desc">Gölgede hareket et, büyük vurgun yap, iz bırakmadan kaç.</div>
+          <div class="role-stats">
+            <div class="stat-row"><span>Zeka</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d"></span><span class="d"></span></div></div>
+            <div class="stat-row"><span>Çeviklik</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span></div></div>
+          </div>
+          <div class="role-start">İtibar: 30 | Para: $200 | Risk: Yüksek</div>
+        </div>
+        <div class="role-card" onclick="selectRole('criminal')" data-role="criminal">
+          <div class="role-icon">💀</div>
+          <div class="role-name">SUÇLU</div>
+          <div class="role-desc">Şehrin karanlık tarafında hayatta kal. Her şey satılık.</div>
+          <div class="role-stats">
+            <div class="stat-row"><span>Karizm</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d"></span></div></div>
+            <div class="stat-row"><span>Risk</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span></div></div>
+          </div>
+          <div class="role-start">İtibar: 20 | Para: $300 | Risk: Kritik</div>
+        </div>
+        <div class="role-card" onclick="selectRole('informant')" data-role="informant">
+          <div class="role-icon">🕵️</div>
+          <div class="role-name">MUHBİR</div>
+          <div class="role-desc">Her iki tarafı oyna. Bilgi sat, güven kazan, sağ kal.</div>
+          <div class="role-stats">
+            <div class="stat-row"><span>Karizm</span><div class="dots"><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span><span class="d on"></span></div></div>
+            <div class="stat-row"><span>Güven</span><div class="dots"><span class="d on"></span><span class="d"></span><span class="d"></span><span class="d"></span><span class="d"></span></div></div>
+          </div>
+          <div class="role-start">İtibar: 50 | Para: $350 | Risk: Orta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OYUN -->
+  <div id="screen-game" class="screen">
+    <div class="game-header">
+      <div class="player-info">
+        <span id="hud-role-icon">🔍</span>
+        <span id="hud-role-name">DEDEKTİF</span>
+      </div>
+      <div class="hud-stats">
+        <div class="stat-bar">
+          <span class="stat-label">İTİBAR</span>
+          <div class="bar-bg"><div class="bar-fill reputation-bar" id="bar-rep"></div></div>
+          <span class="stat-val" id="val-rep">70</span>
+        </div>
+        <div class="stat-bar">
+          <span class="stat-label">PARA</span>
+          <span class="stat-val money" id="val-money">$500</span>
+        </div>
+        <div class="stat-bar">
+          <span class="stat-label">RİSK</span>
+          <div class="bar-bg"><div class="bar-fill risk-bar" id="bar-risk"></div></div>
+          <span class="stat-val" id="val-risk">20</span>
+        </div>
+      </div>
+      <div class="turn-info">TUR <span id="hud-turn">1</span>/<span id="hud-turn-max">10</span></div>
+    </div>
+
+    <div class="game-body">
+      <!-- OLAY -->
+      <div class="event-panel">
+        <div class="event-header">
+          <span class="event-badge" id="event-badge">OLAY</span>
+          <span class="event-location" id="event-location">📍 Şehir</span>
+        </div>
+        <div class="event-text" id="event-text">Yükleniyor...</div>
+        <div class="event-image" id="event-image">🌆</div>
+        <div class="outcome-banner" id="outcome-banner" style="display:none"></div>
+      </div>
+
+      <!-- NPC -->
+      <div class="npc-panel" id="npc-panel" style="display:none">
+        <div class="npc-header">
+          <span class="npc-avatar" id="npc-avatar">👤</span>
+          <div class="npc-info">
+            <div class="npc-name" id="npc-name">???</div>
+            <div class="npc-role-tag" id="npc-role-tag">Şüpheli</div>
+          </div>
+          <button class="npc-close" onclick="document.getElementById('npc-panel').style.display='none'">✕</button>
+        </div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="ai-thinking" id="ai-thinking" style="display:none">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Konuş, sorgula, tehdit et, ikna et..." onkeydown="if(event.key==='Enter') sendChat()" />
+          <button class="btn-send" onclick="sendChat()">▶</button>
+        </div>
+      </div>
+
+      <!-- AKSİYONLAR -->
+      <div class="action-panel">
+        <div class="action-title">AKSİYON SEÇ</div>
+        <div class="card-row" id="card-row"></div>
+      </div>
+    </div>
+
+    <div class="game-log" id="game-log">
+      <div class="log-entry">Oyun başladı...</div>
+    </div>
+  </div>
+
+  <!-- BİTİŞ -->
+  <div id="screen-end" class="screen">
+    <div class="end-content">
+      <div class="end-icon" id="end-icon">🏆</div>
+      <h2 class="end-title" id="end-title">Oyun Bitti</h2>
+      <p class="end-desc" id="end-desc"></p>
+      <div class="end-stats" id="end-stats"></div>
+      <button class="btn-primary" onclick="restartGame()">TEKRAR OYNA</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>

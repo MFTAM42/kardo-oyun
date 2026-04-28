@@ -1,0 +1,11 @@
+{
+  "appId": "com.furkan.kardo",
+  "appName": "KARDO",
+  "webDir": "public",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
