@@ -275,6 +275,18 @@ body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;fo
 .end-stat-val{font-family:'Orbitron',sans-serif;font-size:1.8rem;color:var(--accent)}
 .end-stat-label{font-size:.75rem;color:var(--text2);letter-spacing:.1em;margin-top:.2rem}
 
+/* SKILL BADGE */
+.skill-badge{
+  color:var(--accent);font-size:.6rem;
+  background:rgba(232,160,32,.2);border-radius:2px;
+  padding:0 3px;vertical-align:middle;
+}
+
+/* END SCREEN VARIANTS */
+.end-content.end-good .end-title{color:var(--accent3)}
+.end-content.end-bad  .end-title{color:var(--accent2)}
+.end-content.end-neutral .end-title{color:var(--accent)}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}

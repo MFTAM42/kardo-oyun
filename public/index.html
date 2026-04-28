@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>KARDO: Şehrin Gölgeleri</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json" />
@@ -172,6 +172,30 @@
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
+    // Generate PWA icons at runtime if PNG files not present
+    function generateIcon(size) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size; canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#08080f';
+      ctx.fillRect(0, 0, size, size);
+      const g = ctx.createRadialGradient(size/2, size/2, size*0.1, size/2, size/2, size*0.5);
+      g.addColorStop(0, '#e8a020'); g.addColorStop(1, '#5a3a00');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(size/2, size/2, size*0.42, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#08080f';
+      ctx.font = `bold ${size*0.38}px Orbitron, Arial Black, sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText('K', size/2, size/2 + size*0.02);
+      return canvas.toDataURL('image/png');
+    }
+    // Pre-generate icons and inject into manifest dynamically
+    window.addEventListener('load', () => {
+      const link192 = document.createElement('link');
+      link192.rel = 'apple-touch-icon';
+      link192.href = generateIcon(192);
+      document.head.appendChild(link192);
+    });
   </script>
 </body>
 </html>
